@@ -5,7 +5,7 @@ It supports adjustable stem volumes, playback controls, and pre-trained AI model
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
 - 🎚️ Real-time stem control (vocals, drums, bass, etc.)
 - 🧠 Uses pre-trained AI models for audio separation
@@ -15,14 +15,14 @@ It supports adjustable stem volumes, playback controls, and pre-trained AI model
 - 🧩 One-file executable build with all assets included
 
 ---
-## 💾 Download
+# 💾 Download
 
 👉 **[Download the latest StemMixer.exe](https://github.com/your-username/your-repo/releases/latest)**
 
 No installation required — just download and run `StemMixer.exe`.
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```StemMixer/
 │
@@ -38,7 +38,7 @@ No installation required — just download and run `StemMixer.exe`.
 ```
 
 ---
-## 🧩 Resource Path Helper
+# 🧩 Resource Path Helper
 
 When bundled with PyInstaller, files like config.json and pretrained_models are stored inside a temporary directory.
 Use this helper in your code to correctly load them in both development and production modes:
@@ -57,3 +57,7 @@ Example:
 config_path = resource_path("config.json")
 model_dir = resource_path("pretrained_models")
 ```
+# ⚒️ Credits
+
+- Built with ❤️ using Python, CustomTkinter, and Spleeter
+- Audio separation powered by Deezer’s open-source Spleeter AI model
