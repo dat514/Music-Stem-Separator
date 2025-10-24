@@ -23,7 +23,8 @@ No installation required — just download and run `StemMixer.exe`.
 ---
 
 ## 📁 Project Structure
-StemMixer/
+
+```StemMixer/
 │
 ├── main.py # Main application
 ├── config.json # App configuration file
@@ -34,6 +35,8 @@ StemMixer/
 │
 ├── icon.ico # Converted icon for the .exe
 └── README.md # This file
+```
+
 ---
 ## 🧩 Resource Path Helper
 
