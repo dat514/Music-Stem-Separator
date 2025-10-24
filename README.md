@@ -32,7 +32,7 @@ No installation required — just download and run `StemMixer.exe`.
 │ ├── model1.pt
 │ ├── model2.pt
 │ └── ...
-│
+├──spleeter_resources
 ├── icon.ico # Converted icon for the .exe
 └── README.md # This file
 ```
