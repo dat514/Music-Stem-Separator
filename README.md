@@ -9,10 +9,10 @@ A user-friendly desktop application for downloading audio from YouTube/SoundClou
 ## ✨ Features
 
 - **Audio Download**: High-quality MP3 downloads (up to 320kbps) from YouTube, SoundCloud, or other supported URLs via yt-dlp.
-- **Stem Separation**: AI-powered separation into 2 stems (Vocals + Instrumental) or 4 stems (Vocals, Drums, Bass, Other) using Demucs (HTDemucs or MDX-Extra models).
+- **Stem Separation**: AI-powered separation into 2 stems (Vocals + Instrumental using MDX-Extra) or 4 stems (Vocals, Drums, Bass, Other using HTDemucs).
 - **Batch Processing**: Handle multiple URLs at once.
-- **Post-Processing**: Automatic audio enhancement (high-pass filter, compression, normalization) for cleaner stems.
-- **Integrated Player**: Mix and play stems with individual volume controls, mute toggles, seek bar, and master volume. Supports local file playback too.
+- **Post-Processing**: Automatic audio enhancement (high-pass filter at 80Hz, dynamic compression, normalization) for cleaner stems.
+- **Integrated Player**: Mix and play separated stems with individual volume controls and mute toggles; also supports local file playback with seek bar and master volume.
 - **User-Friendly UI**: CustomTkinter-based interface with theme toggle (dark/light), progress tracking, and easy output folder selection.
 - **Cross-Platform**: Works on Windows, macOS, and Linux.
 
@@ -60,11 +60,11 @@ No installation required! Grab the latest release:
 ```
 MusicStems/
 ├── Song Title.mp3          # Downloaded audio (if Download Only mode)
-└── Song Title/             # Stem folder
-    ├── separated 2 stems/             # For 2-stem mode
+└── Song Title/             # Song folder
+    ├── separated 2 stems/  # For 2-stem mode
     │   ├── vocals.wav
     │   └── instrumental.wav
-    └── separated 4 stems/           # For 4-stem mode
+    └── separated 4 stems/ # For 4-stem mode
         ├── vocals.wav
         ├── drums.wav
         ├── bass.wav
@@ -76,9 +76,10 @@ MusicStems/
 - **FFmpeg**: Essential for audio conversion (auto-detected).
 - **Demucs**: Handles separation (`pip install demucs[torch]`—GPU recommended for speed).
 - **Common Issues**:
-  - **Length Error in Separation**: Fixed in v1.1—long tracks are auto-chunked.
+  - **Length Error in Separation**: Fixed in v1.1—long tracks are auto-chunked with overlap.
   - **CUDA OOM**: Use CPU mode or shorter segments via Demucs params.
   - **No Audio Output**: Check sample rate (forces 44.1kHz) and volume sliders.
+  - **PyInstaller Bundle Errors**: Pre-built EXE includes fixes for missing DLLs (e.g., libsndfile).
 
 For bugs, open an issue on GitHub!
 
@@ -87,4 +88,3 @@ Built with ❤️ using Python, CustomTkinter, and Demucs
 Audio separation powered by Facebook's open-source Demucs AI model  
 
 Inspired by similar tools like Spleeter-based apps. Thanks to the open-source community for libraries like Librosa, Pydub, and Pygame.
-
