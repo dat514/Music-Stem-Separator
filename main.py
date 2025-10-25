@@ -372,17 +372,23 @@ class MusicStemTool(ctk.CTk):
         self.update_queue.put({'type': 'reset_progress'})
         
     def check_dependencies(self):
+        # Full path to bundled ffmpeg.exe
+        ffmpeg_path = resource_path("ffmpeg/bin/ffmpeg.exe")
+        
         try:
-            subprocess.run(["yt-dlp", "--version"], 
+            subprocess.run([ffmpeg_path, "-version"], 
+                         capture_output=True, check=True)
+        except:
+            return False, "FFmpeg not found. (Bundled version missing?) Install from https://ffmpeg.org"
+        
+        # Full path to bundled yt-dlp.exe
+        ytdlp_path = resource_path("yt-dlp.exe")
+        
+        try:
+            subprocess.run([ytdlp_path, "--version"], 
                          capture_output=True, check=True)
         except:
             return False, "yt-dlp not found. Install with: pip install yt-dlp"
-        
-        try:
-            subprocess.run(["ffmpeg", "-version"], 
-                         capture_output=True, check=True)
-        except:
-            return False, "FFmpeg not found. Install from https://ffmpeg.org"
         
         try:
             import demucs
@@ -933,12 +939,14 @@ class MusicStemTool(ctk.CTk):
             self.stop_btn.configure(state="disabled")
     
     def download_audio(self, url, quality):
+        ytdlp_path = resource_path("yt-dlp.exe")
+        
         song_id = re.sub(r'[^a-zA-Z0-9]', '_', url.split('/')[-1]) if '/' in url else 'audio'
         temp_subdir = os.path.join(self.output_dir, f"temp_{song_id}")
         os.makedirs(temp_subdir, exist_ok=True)
         
         cmd = [
-            "yt-dlp",
+            ytdlp_path,  
             "-f", f"bestaudio[abr<={quality}]/best",
             "--audio-format", "mp3",
             "--audio-quality", f"{quality}K",
