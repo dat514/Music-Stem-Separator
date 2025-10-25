@@ -61,10 +61,10 @@ No installation required! Grab the latest release:
 MusicStems/
 ├── Song Title.mp3          # Downloaded audio (if Download Only mode)
 └── Song Title/             # Stem folder
-    ├── karaoke/             # For 2-stem mode
+    ├── separated 2 stems/             # For 2-stem mode
     │   ├── vocals.wav
     │   └── instrumental.wav
-    └── separated/           # For 4-stem mode
+    └── separated 4 stems/           # For 4-stem mode
         ├── vocals.wav
         ├── drums.wav
         ├── bass.wav
