@@ -1,6 +1,5 @@
 # Music Stem Separator (Demucs Edition)
 
-[![GitHub Releases](https://img.shields.io/github/v/release/dat514/music-stem-separator?include_prereleases=&sort=semver&color=brightgreen)](https://github.com/dat514/music-stem-separator/releases)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -17,15 +16,6 @@ A user-friendly desktop application for downloading audio from YouTube/SoundClou
 - **Cross-Platform**: Works on Windows, macOS, and Linux.
 
 ## 🚀 Quick Start
-
-### Download Pre-Built Executable (Recommended)
-No installation required! Grab the latest release:
-
-1. Go to [Releases](https://github.com/dat514/music-stem-separator/releases).
-2. Download the appropriate EXE file (e.g., `MusicStemSeparator-v1.1.exe` for Windows).
-3. Run the EXE directly. Dependencies like FFmpeg and yt-dlp are bundled.
-
-**Note**: On first run, it may prompt for FFmpeg if not detected—download from [ffmpeg.org](https://ffmpeg.org/download.html) and add to PATH.
 
 ### Manual Installation (For Developers)
 1. Clone the repo:
@@ -79,7 +69,7 @@ MusicStems/
   - **Length Error in Separation**: Fixed in v1.1—long tracks are auto-chunked with overlap.
   - **CUDA OOM**: Use CPU mode or shorter segments via Demucs params.
   - **No Audio Output**: Check sample rate (forces 44.1kHz) and volume sliders.
-  - **PyInstaller Bundle Errors**: Pre-built EXE includes fixes for missing DLLs (e.g., libsndfile).
+  - **PyInstaller Bundle Errors**: For standalone EXE, use the provided build script with bundled DLLs (e.g., libsndfile).
 
 For bugs, open an issue on GitHub!
 
